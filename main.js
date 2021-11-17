@@ -10,6 +10,10 @@ toggleButton.addEventListener('click', () => {
     }
 })
 
+document.querySelectorAll(".card-text").forEach((x) => {
+    x.innerText = x.innerText.replace(/\./g, ".\n");
+  });
+
 // window.addEventListener('scroll', (event) => {
 
 //     const scrollTop = window.scrollY;
