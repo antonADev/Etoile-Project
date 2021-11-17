@@ -73,6 +73,7 @@ nav {
 
 .show-links {
   height: 10rem;
+  margin-bottom: 20px;
 }
 
 .nav-toggle {
@@ -313,6 +314,11 @@ align-items: baseline;
   .navbar-links a {
     padding: 0;
     margin: 0 1rem;
+  }
+
+  .navbar-links a:hover {
+    padding: 0;
+    background: transparent;
   }
 }
 

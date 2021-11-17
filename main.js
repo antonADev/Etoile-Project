@@ -14,6 +14,14 @@ document.querySelectorAll(".card-text").forEach((x) => {
     x.innerText = x.innerText.replace(/\./g, ".\n");
   });
 
+  window.addEventListener("resize", () => {
+    if (navLinks.classList.contains('show-links') && window.innerWidth >= "800"){
+        navLinks.classList.remove('show-links');
+    } else {
+        return;
+    }
+});
+
 // window.addEventListener('scroll', (event) => {
 
 //     const scrollTop = window.scrollY;
