@@ -47,8 +47,8 @@
         </div>
     </nav>
     <section id="welcome-section">
-        <div class="main-container">
-            <div class="border-container">
+        <div class="main-container welcome-container">
+            <div class="border-container welcome-border-container">
                 <div class="opacity-container">
                     
                         
@@ -145,5 +145,68 @@
           </div>
         </div>
       </section>
+      <section id="form-section">
+        <div class="main-container form-container">
+          <div class="border-container form-border-container">
+            <div class="yellow-container">
+              <div class="form">
+                <div class="form-space">
+                  <label for="inputName" class="name-input form-label"
+                    >Nome:</label
+                  >
+                  <input
+                    type="name"
+                    id="inputName"
+                    class="name-control form-control"
+                    aria-describedby="NamehelpBlock"
+                    placeholder="Nome"
+                  />
+                </div>
+                <div class="form-space">
+                  <label for="inputSurname" class="surname-input form-label"
+                    >Cognome:</label
+                  >
+                  <input
+                    type="surname"
+                    id="inputSurname"
+                    class="surname-control form-control"
+                    aria-describedby="surnameBlock"
+                    placeholder="Cognome"
+                  />
+                </div>
+                <div class="form-space">
+                  <label for="validationCustom04" class="form-label"
+                    >Per cosa ci contatti?</label
+                  >
+                  <select class="form-select" id="validationCustom04" required>
+                    <option selected disabled value="">Seleziona...</option>
+                    <option>Preventivo</option>
+                    <option>Organizzazione evento</option>
+                    <option>Richieste speciali</option>
+                    <option>Informazioni generali</option>
+                  </select>
+                  <div class="invalid-feedback">Indica una motivazione.</div>
+                </div>
+                <div class="form-space">
+                  <label for="exampleFormControlTextarea1" class="form-label"
+                    >Messaggio:</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    placeholder="Scrivi qui il tuo messaggio"
+                  ></textarea>
+                </div>
+                <div>
+                  <button type="submit" class="menu-btn submit-button btn btn-primary button-wrapper">Invia</button>
+                </div>
+              </div>
+            </div>
+            
+              
+          </div>
+        </div>
+    </section>
   </body>
 </html>

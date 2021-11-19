@@ -115,15 +115,18 @@ nav {
 .main-container {
   height: 100%;
   width: 100%;
-  background-image: url("images/cocktail-bg.jpg");
-  background-position: top;
-  background-size: 100%;
-  background-repeat: no-repeat;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   justify-items: center;
   align-items: center;
+}
+
+.welcome-container {
+  background-image: url("images/cocktail-bg.jpg");
+  background-position: top;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .text-container {
@@ -349,7 +352,114 @@ align-items: baseline;
   font-weight: 500;
 }
 
+/* Form Section */
 
+#form-section {
+  height: 900px;
+}
+
+.form-border-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+    background-image: url("images/cocktail-3.png");
+    background-position: right;
+    background-size: 40%;
+    background-repeat: no-repeat;
+}
+
+.yellow-container {
+  width: 400px;
+  height: 500px;
+  background-color: #ffcf9a;
+  background-image: url("images/patt.png");
+  z-index: 10;
+  margin-top: 3.5rem;
+}
+
+.form-cocktail-image {
+  box-sizing: border-box;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-select {
+  display: block;
+  width: 100%;
+  padding: .375rem 2.25rem .375rem .75rem;
+  -moz-padding-start: calc(0.75rem - 3px);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+  background-size: 16px 12px;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-image {
+  width: 35%;
+  position: relative;
+  float: right;
+  bottom: 3rem;
+  margin: 1.5rem 15rem 15rem 0;
+  box-sizing: border-box;
+}
+
+.form {
+  box-sizing: border-box;
+  padding: 0 5%;
+
+}
+
+.form-label {
+  color: #333;
+}
+
+.form-space {
+  margin: 3% 0;
+}
+.submit-button {
+  border: 1px solid #160b00 !important;
+  color: #ffcf9a !important;
+  background-color: #160b00 !important;
+}
+
+.submit-button:hover {
+  background: transparent !important;
+  color: #160b00 !important;
+  
+}
 
 @media screen and (min-width: 800px) {
   .navbar-center {
@@ -392,6 +502,10 @@ align-items: baseline;
     height: 90%;
     width: 90%;
     border: 1px solid #fed675;
+    
+  }
+
+  .welcome-border-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
@@ -438,8 +552,17 @@ align-items: baseline;
   }
 
   #welcome-section {
-    height: 800px;
+    min-height: 800px;
     margin-bottom: 25%;
+  }
+
+  #middle-section {
+    min-height: 1500px;
+    margin-bottom: 30rem;
+  }
+
+  #form-section {
+    min-height: 800px;
   }
 
   .text-container {
