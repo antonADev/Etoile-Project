@@ -356,7 +356,7 @@ nav {
 /* Form Section */
 
 #form-section {
-  height: 900px;
+  height: 700px;
 }
 
 .form-border-container {
@@ -462,6 +462,59 @@ nav {
   color: #160b00 !important;
 }
 
+/* FOOTER SECTION */
+
+#footer {
+  min-height: 300px;
+  width: 100%;
+  background-color: #ffcf9a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.footer-containers {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+}
+
+.footer-text-container {
+  padding: 3% 0 0 0;
+}
+
+.footer-text-container p {
+  font-size: 0.6rem;
+  color: #160b00;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.footer-mail::before {
+  content: "|";
+  padding: 0 20px;
+}
+
+.footer-mail::after {
+  content: "|";
+  padding: 0 20px;
+}
+
+.footer-icon-container {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  padding: 2% 0 3% 0;
+}
+
+.fab {
+  padding: 0 10px;
+  color: #160b00;
+}
+
 @media screen and (min-width: 800px) {
   .navbar-center {
     max-width: 1170px;
@@ -537,6 +590,10 @@ nav {
     height: 600px;
     transform: translate(-50px, -50px);
   }
+
+  #footer {
+    margin-top: 150px;
+  }
 }
 
 @media screen and (min-width: 963px) {
@@ -550,7 +607,7 @@ nav {
   }
 
   #form-section {
-    margin-top: 150px;
+    margin-top: 250px;
   }
 }
 
