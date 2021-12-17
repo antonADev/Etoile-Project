@@ -1,5 +1,6 @@
 :root {
   --transition: all 0.3s linear;
+  --maxwidth: 1400px;
 }
 
 *,
@@ -9,6 +10,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* .positioning {
+  max-width: 1400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 
 body {
   position: relative;
@@ -301,6 +309,9 @@ nav {
 
 #middle-section {
   height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .reveal {
@@ -353,7 +364,7 @@ nav {
   font-weight: 500;
 }
 
-/* Form Section */
+/* Form Section
 
 #form-section {
   height: 700px;
@@ -460,11 +471,19 @@ nav {
 .submit-button:hover {
   background: transparent !important;
   color: #160b00 !important;
-}
+} */
 
 /* FOOTER SECTION */
-
 #footer {
+  margin-top: 3%;
+}
+
+.footer-div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.footer-class {
   min-height: 300px;
   width: 100%;
   background-color: #ffcf9a;
@@ -547,8 +566,12 @@ nav {
 
 @media screen and (min-width: 1350px) {
   .main-container {
-    max-width: 1400px;
+    max-width: var(--maxwidth);
     margin: 0 auto;
+  }
+
+  .middle-section-container {
+    max-width: var(--maxwidth);
   }
   .border-container {
     grid-column: 1 / -1;
@@ -591,9 +614,17 @@ nav {
     transform: translate(-50px, -50px);
   }
 
-  #footer {
+  .footer-class {
+    max-width: var(--maxwidth);
     margin-top: 150px;
   }
+
+  .tab-container {
+    max-width: var(--maxwidth);
+  }
+}
+
+@media screen and (max-width: 1350px) {
 }
 
 @media screen and (min-width: 963px) {
@@ -606,9 +637,9 @@ nav {
     transform: translateX(0px) translateY(-200px);
   }
 
-  #form-section {
+  /* #form-section {
     margin-top: 250px;
-  }
+  } */
 }
 
 @media screen and (max-width: 963px) {
@@ -619,18 +650,22 @@ nav {
   }
 
   #welcome-section {
-    min-height: 800px;
-    margin-bottom: 25%;
+    max-height: 850px;
+    margin-bottom: 20%;
+  }
+
+  #info-section {
+    margin-bottom: 40%;
   }
 
   #middle-section {
     min-height: 1500px;
-    margin-bottom: 30rem;
+    margin-bottom: 300px;
   }
 
-  #form-section {
+  /* #form-section {
     min-height: 800px;
-  }
+  } */
 
   .text-container {
     text-align: center;
@@ -684,4 +719,75 @@ nav {
   .activity-para {
     margin-top: 50px;
   }
+}
+
+@media screen and (max-width: 449px) {
+  .footer-containers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-container p {
+    margin: 10px 0;
+  }
+}
+
+/* Style the tab */
+#menu {
+  margin-top: 400px;
+}
+
+.tab-div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 900px;
+}
+
+.tab-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #fed675;
+}
+
+/* Style the buttons that are used to open the tab content */
+
+.tab-button-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+.tab-button-container button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #ffcf9a;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Change background color of buttons on hover */
+.tab-button-container button:hover {
+  background-color: #ffcf9a;
+  color: #160b00;
+}
+
+/* Create an active/current tablink class */
+.tab-button-container button.activeTab {
+  background-color: #ffcf9a;
+  color: #160b00;
+}
+
+.tab-content-container {
+  width: 100%;
+  height: 100%;
+  background-color: #ffcf9a;
 }
