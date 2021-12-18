@@ -1,30 +1,58 @@
 const toggleButton = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.navbar-links');
 const navBar = document.querySelector('[data-nav]');
+const tabLinks = document.querySelectorAll('.tablinks');
+const menuItemDivs = document.querySelectorAll('.style');
 
 const menu = {
   breakfastMenu: [
     {
       name: 'Cornetto Integrale Vuoto',
       prodAllergens: [2, 5, 13],
+      frozen: true,
     },
     {
       name: 'Cornetto Vuoto',
       prodAllergens: [2, 5, 13],
+      frozen: true,
     },
     {
       name: 'Bombolone',
       prodAllergens: [2, 5, 13],
+      frozen: true,
     },
     {
       name: 'Conchiglia cioccolato',
       prodAllergens: [2, 5, 13],
+      frozen: true,
+    },
+  ],
+  aperitifMenu: [
+    {
+      name: 'Tagliere Salumi & Formaggi',
+      prodAllergens: [5],
+      frozen: false,
+    },
+    {
+      name: 'Aperitivo Completo',
+      prodAllergens: [1, 2, 4, 5],
+      frozen: false,
+    },
+    {
+      name: 'Aperitivo Base',
+      prodAllergens: [13],
+      frozen: false,
+    },
+    {
+      name: 'Nachos con salsa BBQ e olive',
+      prodAllergens: [2, 5, 13],
+      frozen: false,
     },
   ],
   allergens: [
     'Anidride solforosa e Solfiti',
     'Arachidi',
-    'Cereali e/o Farine',
+    'Glutine',
     'Crostacei',
     'Frutta a guscio',
     'Latte',
@@ -48,20 +76,52 @@ const menu = {
 
 const eatings = ['one', 'two', 'three', 'four'];
 
+const removeMenuItems = function () {
+  menuItemDivs.forEach(element => {
+    element.innerHTML = '';
+  });
+};
+
 const displayFood = function (whichMenu) {
+  removeMenuItems();
   for (let y = 0; y < whichMenu.length; y++) {
     let selectedDiv = document.querySelector(`.${eatings[y]}`);
     let header = document.createElement('H5');
     header.classList.add('product');
     let allergens = document.createElement('P');
     allergens.classList.add('allergens');
+    let isFrozen = document.createElement('P');
+    isFrozen.classList.add('isFrozen');
     header.textContent = whichMenu[y].name;
     allergens.textContent = menu.displayAllergens(whichMenu[y].prodAllergens);
+    isFrozen.textContent =
+      whichMenu[y].frozen === true
+        ? `Prodotto congelato`
+        : `Prodotto artigianalmente`;
     selectedDiv.appendChild(header);
     selectedDiv.appendChild(allergens);
+    selectedDiv.appendChild(isFrozen);
   }
 };
-displayFood(menu.breakfastMenu);
+
+tabLinks.forEach(button => {
+  button.addEventListener('click', () => {
+    console.log(button.textContent);
+    switch (button.textContent) {
+      case 'Colazione':
+        displayFood(menu.breakfastMenu);
+        break;
+      case 'Aperitivo':
+        displayFood(menu.aperitifMenu);
+        break;
+      case 'Gelateria':
+        displayFood(menu.iceCream);
+        break;
+      default:
+        break;
+    }
+  });
+});
 
 toggleButton.addEventListener('click', () => {
   if (navLinks.classList.contains('show-links')) {
