@@ -38,7 +38,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display";
+  font-family: 'Playfair Display';
   font-weight: 500;
   line-height: 1.2;
   color: #ffebd6;
@@ -136,7 +136,7 @@ nav {
 }
 
 .welcome-container {
-  background-image: url("images/cocktail-bg.jpg");
+  background-image: url('images/cocktail-bg.jpg');
   background-position: top;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -152,7 +152,7 @@ nav {
 }
 
 .phone-number-para {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-weight: 100 !important;
   color: #ffebd6;
   line-height: 1.5;
@@ -214,7 +214,7 @@ nav {
 }
 
 .menu-btn:after {
-  content: "»";
+  content: '»';
   position: absolute;
   opacity: 0;
   top: 14px;
@@ -261,7 +261,7 @@ nav {
   background-color: #ffcf9a;
   background-size: initial;
   background-repeat: repeat;
-  background-image: url("images/patt.png");
+  background-image: url('images/patt.png');
   padding: 10% 0;
   border: none;
 }
@@ -269,7 +269,7 @@ nav {
 .left-card {
   background-color: #160b00 !important;
   border: none;
-  font-family: "Montserrat", Helvetica, Arial, Lucida, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -290,7 +290,7 @@ nav {
 
 .middle-card {
   background: linear-gradient(180deg, #ffffff 0%, rgba(255, 207, 154, 0.3) 100%),
-    url("images/cocktail-card.jpg");
+    url('images/cocktail-card.jpg');
   background-position: center;
   background-size: 100%;
   padding: 30% 5%;
@@ -298,7 +298,7 @@ nav {
   text-align: right;
 }
 .txt-card {
-  font-family: "Montserrat", Helvetica, Arial, Lucida, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
   font-weight: 700;
   font-size: 1.75rem;
   line-height: 1.2em;
@@ -512,12 +512,12 @@ nav {
 }
 
 .footer-mail::before {
-  content: "|";
+  content: '|';
   padding: 0 20px;
 }
 
 .footer-mail::after {
-  content: "|";
+  content: '|';
   padding: 0 20px;
 }
 
@@ -585,7 +585,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
-    grid-template-areas: "yellow-bg opacity-bg";
+    grid-template-areas: 'yellow-bg opacity-bg';
     justify-content: center;
     align-self: center;
   }
@@ -747,20 +747,23 @@ nav {
 
 .tab-container {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
   overflow: hidden;
-  border: 1px solid #fed675;
 }
 
 /* Style the buttons that are used to open the tab content */
 
 .tab-button-container {
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-evenly;
+  flex-direction: row;
+  height: 100px;
+  width: 100%;
+  justify-content: space-around;
+  border: 1px solid #fed675;
+  margin-bottom: 20px;
 }
 .tab-button-container button {
   background-color: inherit;
@@ -789,5 +792,36 @@ nav {
 .tab-content-container {
   width: 100%;
   height: 100%;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.style {
   background-color: #ffcf9a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product {
+  font-size: 1.7rem;
+  word-break: break-all;
+  margin: 0 5px 30px 5px;
+}
+
+.style p,
+h5 {
+  color: #160b00;
+  text-align: center;
+}
+
+.style p {
+  margin-bottom: 10px;
 }
