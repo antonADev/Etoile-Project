@@ -777,13 +777,13 @@ nav {
   font-weight: 500;
 }
 
-/* Change background color of buttons on hover */
+/* Change background color of buttons on hover  */
 .tab-button-container button:hover {
   background-color: #ffcf9a;
   color: #160b00;
 }
 
-/* Create an active/current tablink class */
+/* Create an active/current tablink class  */
 .tab-button-container button.activeTab {
   background-color: #ffcf9a;
   color: #160b00;
@@ -794,9 +794,17 @@ nav {
   height: 100%;
 }
 
-.parent {
+.parentBig {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.parentSmall {
+  display: grid;
+  grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 20px;

@@ -3,6 +3,9 @@ const navLinks = document.querySelector('.navbar-links');
 const navBar = document.querySelector('[data-nav]');
 const tabLinks = document.querySelectorAll('.tablinks');
 const menuItemDivs = document.querySelectorAll('.style');
+const tabContent = document.querySelector('.tab-content-container');
+
+let currentWidth;
 
 const menu = {
   breakfastMenu: [
@@ -74,18 +77,27 @@ const menu = {
   },
 };
 
-const eatings = ['one', 'two', 'three', 'four'];
+const eatingsBig = ['one', 'two', 'three', 'four'];
+const eatingsSmall = ['one', 'two', 'three'];
+
+// const removeMenuItems = function () {
+//   menuItemDivs.forEach(element => {
+//     element.innerText = '';
+//   });
+// };
 
 const removeMenuItems = function () {
-  menuItemDivs.forEach(element => {
-    element.innerHTML = '';
-  });
+  tabContent.innerHTML = '';
 };
 
 const displayFood = function (whichMenu) {
   removeMenuItems();
-  for (let y = 0; y < whichMenu.length; y++) {
-    let selectedDiv = document.querySelector(`.${eatings[y]}`);
+  let arrayChoice = displayRightCards(currentWidth);
+  console.log(displayRightCards(currentWidth));
+  for (let y = 0; y < arrayChoice.length; y++) {
+    // let createdDiv = document.querySelector(`.${eatings[y]}`);
+    let createdDiv = document.createElement('DIV');
+    createdDiv.classList.add(`${arrayChoice[y]}`, 'style');
     let header = document.createElement('H5');
     header.classList.add('product');
     let allergens = document.createElement('P');
@@ -98,9 +110,10 @@ const displayFood = function (whichMenu) {
       whichMenu[y].frozen === true
         ? `Prodotto congelato`
         : `Prodotto artigianalmente`;
-    selectedDiv.appendChild(header);
-    selectedDiv.appendChild(allergens);
-    selectedDiv.appendChild(isFrozen);
+    tabContent.appendChild(createdDiv);
+    createdDiv.appendChild(header);
+    createdDiv.appendChild(allergens);
+    createdDiv.appendChild(isFrozen);
   }
 };
 
@@ -178,3 +191,25 @@ function reveal() {
     }
   }
 }
+function screenSize() {
+  // Get the dimensions of the viewport
+  let width =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+  currentWidth = width;
+}
+window.addEventListener('load', screenSize);
+window.addEventListener('resize', screenSize);
+
+const displayRightCards = function (screenWidth) {
+  if (screenWidth >= 963) {
+    tabContent.classList.remove('parentSmall');
+    tabContent.classList.add('parentBig');
+    return eatingsBig;
+  } else {
+    tabContent.classList.add('parentSmall');
+    tabContent.classList.remove('parentBig');
+    return eatingsSmall;
+  }
+};
