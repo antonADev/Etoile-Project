@@ -92,12 +92,10 @@ const removeMenuItems = function () {
 
 const displayFood = function (whichMenu) {
   removeMenuItems();
-  let arrayChoice = displayRightCards(currentWidth);
-  console.log(displayRightCards(currentWidth));
-  for (let y = 0; y < arrayChoice.length; y++) {
+  for (let y = 0; y < screenSize().length; y++) {
     // let createdDiv = document.querySelector(`.${eatings[y]}`);
     let createdDiv = document.createElement('DIV');
-    createdDiv.classList.add(`${arrayChoice[y]}`, 'style');
+    createdDiv.classList.add(`${screenSize()[y]}`, 'style');
     let header = document.createElement('H5');
     header.classList.add('product');
     let allergens = document.createElement('P');
@@ -119,7 +117,6 @@ const displayFood = function (whichMenu) {
 
 tabLinks.forEach(button => {
   button.addEventListener('click', () => {
-    console.log(button.textContent);
     switch (button.textContent) {
       case 'Colazione':
         displayFood(menu.breakfastMenu);
@@ -197,13 +194,7 @@ function screenSize() {
     window.innerWidth ||
     document.documentElement.clientWidth ||
     document.body.clientWidth;
-  currentWidth = width;
-}
-window.addEventListener('load', screenSize);
-window.addEventListener('resize', screenSize);
-
-const displayRightCards = function (screenWidth) {
-  if (screenWidth >= 963) {
+  if (width >= 963) {
     tabContent.classList.remove('parentSmall');
     tabContent.classList.add('parentBig');
     return eatingsBig;
@@ -212,4 +203,6 @@ const displayRightCards = function (screenWidth) {
     tabContent.classList.remove('parentBig');
     return eatingsSmall;
   }
-};
+}
+window.addEventListener('load', screenSize);
+window.addEventListener('resize', screenSize);
