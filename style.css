@@ -735,7 +735,7 @@ nav {
 
 /* Style the tab */
 #menu {
-  margin-top: 400px;
+  margin: 200px 0;
 }
 
 .tab-div {
@@ -833,4 +833,10 @@ h5 {
 .style p {
   margin-bottom: 10px;
   font-size: 0.6rem;
+}
+
+.style .price {
+  margin-top: 10px;
+  font-size: 1.4rem;
+  font-weight: 600;
 }

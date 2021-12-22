@@ -13,21 +13,61 @@ const menu = {
       name: 'Cornetto Integrale Vuoto',
       prodAllergens: [2, 5, 13],
       frozen: true,
+      price: '1,20€',
     },
     {
       name: 'Cornetto Vuoto',
       prodAllergens: [2, 5, 13],
       frozen: true,
+      price: '1,20€',
     },
     {
       name: 'Bombolone',
       prodAllergens: [2, 5, 13],
       frozen: true,
+      price: '1,00€',
     },
     {
-      name: 'Conchiglia cioccolato',
+      name: 'Conchiglia cioccolato o crema',
       prodAllergens: [2, 5, 13],
       frozen: true,
+      price: '1,00€',
+    },
+    {
+      name: 'Cornetto alle Mandorle',
+      prodAllergens: [2, 4, 5, 13],
+      frozen: true,
+      price: '1,00€',
+    },
+    {
+      name: 'Crostata',
+      prodAllergens: [2, 5, 13],
+      frozen: false,
+      price: '1,50€',
+    },
+    {
+      name: 'Saccottino al Cioccolato',
+      prodAllergens: [2, 5, 13],
+      frozen: false,
+      price: '1,00€',
+    },
+    {
+      name: 'Saccottino Mela e Crema',
+      prodAllergens: [2, 5, 13],
+      frozen: false,
+      price: '1,00€',
+    },
+    {
+      name: 'Treccia ai Frutti di Bosco',
+      prodAllergens: [2, 5, 13],
+      frozen: true,
+      price: '1,00€',
+    },
+    {
+      name: 'Treccia alle Noci',
+      prodAllergens: [2, 4, 5, 13],
+      frozen: true,
+      price: '1,00€',
     },
   ],
   aperitifMenu: [
@@ -35,21 +75,51 @@ const menu = {
       name: 'Tagliere Salumi & Formaggi',
       prodAllergens: [5],
       frozen: false,
+      price: '1,20€',
     },
     {
       name: 'Aperitivo Completo',
       prodAllergens: [1, 2, 4, 5],
       frozen: false,
+      price: '1,20€',
     },
     {
       name: 'Aperitivo Base',
       prodAllergens: [13],
       frozen: false,
+      price: '1,20€',
     },
     {
       name: 'Nachos con salsa BBQ e olive',
       prodAllergens: [2, 5, 13],
       frozen: false,
+      price: '1,20€',
+    },
+  ],
+  iceCreamMenu: [
+    {
+      name: 'Tagliere Salumi & Formaggi',
+      prodAllergens: [5],
+      frozen: false,
+      price: '1,20€',
+    },
+    {
+      name: 'Aperitivo Completo',
+      prodAllergens: [1, 2, 4, 5],
+      frozen: false,
+      price: '1,20€',
+    },
+    {
+      name: 'Aperitivo Base',
+      prodAllergens: [13],
+      frozen: false,
+      price: '1,20€',
+    },
+    {
+      name: 'Nachos con salsa BBQ e olive',
+      prodAllergens: [2, 5, 13],
+      frozen: false,
+      price: '1,20€',
     },
   ],
   allergens: [
@@ -77,7 +147,16 @@ const menu = {
   },
 };
 
-const eatingsBig = ['one', 'two', 'three', 'four'];
+const eatingsBig = [
+  'one',
+  'two',
+  'three',
+  'four',
+  'five',
+  'six',
+  'seven',
+  'eight',
+];
 const eatingsSmall = ['one', 'two', 'three'];
 
 // const removeMenuItems = function () {
@@ -102,21 +181,29 @@ const displayFood = function (whichMenu) {
     allergens.classList.add('allergens');
     let isFrozen = document.createElement('P');
     isFrozen.classList.add('isFrozen');
+    let price = document.createElement('P');
+    price.classList.add('price');
     header.textContent = whichMenu[y].name;
     allergens.textContent = menu.displayAllergens(whichMenu[y].prodAllergens);
     isFrozen.textContent =
       whichMenu[y].frozen === true
         ? `Prodotto congelato`
-        : `Prodotto artigianalmente`;
+        : `Prodotto artigianale`;
+    price.textContent = whichMenu[y].price;
     tabContent.appendChild(createdDiv);
-    createdDiv.appendChild(header);
-    createdDiv.appendChild(allergens);
-    createdDiv.appendChild(isFrozen);
+    createdDiv.append(header, allergens, isFrozen, price);
+    // createdDiv.appendChild(allergens);
+    // createdDiv.appendChild(isFrozen);
+    // createdDiv.appendChild(price);
   }
 };
 
-tabLinks.forEach(button => {
+tabLinks.forEach((button, index) => {
   button.addEventListener('click', () => {
+    tabLinks.forEach(a => {
+      a.classList.remove('activeTab');
+    });
+    button.classList.add('activeTab');
     switch (button.textContent) {
       case 'Colazione':
         displayFood(menu.breakfastMenu);
@@ -125,7 +212,7 @@ tabLinks.forEach(button => {
         displayFood(menu.aperitifMenu);
         break;
       case 'Gelateria':
-        displayFood(menu.iceCream);
+        displayFood(menu.iceCreamMenu);
         break;
       default:
         break;
