@@ -756,6 +756,11 @@ nav {
 
 /* Style the buttons that are used to open the tab content */
 
+#menu {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
 .tab-button-container {
   display: flex;
   flex-direction: row;

@@ -25,19 +25,19 @@ const menu = {
       name: 'Bombolone',
       prodAllergens: [2, 5, 13],
       frozen: true,
-      price: '1,00€',
+      price: '1,20€',
     },
     {
       name: 'Conchiglia cioccolato o crema',
       prodAllergens: [2, 5, 13],
       frozen: true,
-      price: '1,00€',
+      price: '1,20€',
     },
     {
       name: 'Cornetto alle Mandorle',
       prodAllergens: [2, 4, 5, 13],
       frozen: true,
-      price: '1,00€',
+      price: '1,20€',
     },
     {
       name: 'Crostata',
@@ -49,25 +49,25 @@ const menu = {
       name: 'Saccottino al Cioccolato',
       prodAllergens: [2, 5, 13],
       frozen: false,
-      price: '1,00€',
+      price: '1,20€',
     },
     {
       name: 'Saccottino Mela e Crema',
       prodAllergens: [2, 5, 13],
       frozen: false,
-      price: '1,00€',
+      price: '1,20€',
     },
     {
       name: 'Treccia ai Frutti di Bosco',
       prodAllergens: [2, 5, 13],
       frozen: true,
-      price: '1,00€',
+      price: '1,20€',
     },
     {
       name: 'Treccia alle Noci',
       prodAllergens: [2, 4, 5, 13],
       frozen: true,
-      price: '1,00€',
+      price: '1,20€',
     },
   ],
   aperitifMenu: [
@@ -261,12 +261,12 @@ window.addEventListener('resize', () => {
 window.addEventListener('scroll', reveal);
 
 function reveal() {
-  var reveals = document.querySelectorAll('.reveal');
+  let reveals = document.querySelectorAll('.reveal');
 
   for (var i = 0; i < reveals.length; i++) {
-    var windowheight = window.innerHeight;
-    var revealtop = reveals[i].getBoundingClientRect().top;
-    var revealpoint = 150;
+    let windowheight = window.innerHeight;
+    let revealtop = reveals[i].getBoundingClientRect().top;
+    let revealpoint = 150;
 
     if (revealtop < windowheight - revealpoint) {
       reveals[i].classList.add('active');
@@ -292,4 +292,8 @@ function screenSize() {
   }
 }
 window.addEventListener('load', screenSize);
+window.addEventListener('load', function () {
+  displayFood(menu.breakfastMenu);
+  tabLinks[0].classList.add('activeTab');
+});
 window.addEventListener('resize', screenSize);
