@@ -248,6 +248,7 @@ nav {
 }
 
 .card-body {
+  position: relative;
   text-align: center;
   color: #ffffff;
   display: flex;
@@ -258,12 +259,23 @@ nav {
 }
 
 .right-card {
+  position: relative;
   background-color: #ffcf9a;
   background-size: initial;
   background-repeat: repeat;
   background-image: url('images/patt.png');
   padding: 10% 0;
   border: none;
+  animation: toBottom 2s;
+}
+
+@keyframes toBottom {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 0;
+  }
 }
 
 .left-card {
@@ -274,6 +286,16 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   align-items: baseline;
+  animation: toRight 2s;
+}
+
+@keyframes toRight {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 0;
+  }
 }
 
 .left-card .card-title {
@@ -289,6 +311,7 @@ nav {
 }
 
 .middle-card {
+  position: relative;
   background: linear-gradient(180deg, #ffffff 0%, rgba(255, 207, 154, 0.3) 100%),
     url('images/cocktail-card.jpg');
   background-position: center;
@@ -296,6 +319,16 @@ nav {
   padding: 30% 5%;
   border: none;
   text-align: right;
+  animation: toTop 2s;
+}
+
+@keyframes toTop {
+  0% {
+    top: 100px;
+  }
+  100% {
+    top: 0;
+  }
 }
 .txt-card {
   font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
@@ -731,6 +764,10 @@ nav {
   .footer-container p {
     margin: 10px 0;
   }
+  .tab-button-container button {
+    max-width: 100px;
+    font-size: 0.7rem;
+  }
 }
 
 /* Style the tab */
@@ -780,6 +817,9 @@ nav {
   color: #ffcf9a;
   text-transform: uppercase;
   font-weight: 500;
+  width: 120px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* Change background color of buttons on hover  */

@@ -74,26 +74,27 @@ const menu = {
     {
       name: 'Tagliere Salumi & Formaggi',
       prodAllergens: [5],
-      frozen: false,
-      price: '1,20€',
+      price: '5,00€',
     },
     {
       name: 'Aperitivo Completo',
       prodAllergens: [1, 2, 4, 5],
-      frozen: false,
-      price: '1,20€',
+      price: '7.50€',
     },
     {
       name: 'Aperitivo Base',
       prodAllergens: [13],
-      frozen: false,
-      price: '1,20€',
+      price: '2.50€',
     },
     {
-      name: 'Nachos con salsa BBQ e olive',
+      name: 'Nachos con salsa BBQ e Olive',
       prodAllergens: [2, 5, 13],
-      frozen: false,
-      price: '1,20€',
+      price: '1,00€',
+    },
+    {
+      name: 'Patatine & Arachidi',
+      prodAllergens: [4],
+      price: '0,50€',
     },
   ],
   iceCreamMenu: [
@@ -101,25 +102,31 @@ const menu = {
       name: 'Tagliere Salumi & Formaggi',
       prodAllergens: [5],
       frozen: false,
-      price: '1,20€',
+      price: '5,00€',
     },
     {
       name: 'Aperitivo Completo',
       prodAllergens: [1, 2, 4, 5],
       frozen: false,
-      price: '1,20€',
+      price: '7.50€',
     },
     {
       name: 'Aperitivo Base',
       prodAllergens: [13],
       frozen: false,
-      price: '1,20€',
+      price: '2.50€',
     },
     {
-      name: 'Nachos con salsa BBQ e olive',
+      name: 'Nachos con salsa BBQ e Olive',
       prodAllergens: [2, 5, 13],
       frozen: false,
-      price: '1,20€',
+      price: '1,00€',
+    },
+    {
+      name: 'Patatine & Arachidi',
+      prodAllergens: [4],
+      frozen: false,
+      price: '0,50€',
     },
   ],
   allergens: [
@@ -185,16 +192,17 @@ const displayFood = function (whichMenu) {
     price.classList.add('price');
     header.textContent = whichMenu[y].name;
     allergens.textContent = menu.displayAllergens(whichMenu[y].prodAllergens);
-    isFrozen.textContent =
-      whichMenu[y].frozen === true
-        ? `Prodotto congelato`
-        : `Prodotto artigianale`;
+    if (whichMenu[y].hasOwnProperty('frozen')) {
+      isFrozen.textContent =
+        whichMenu[y].frozen === true
+          ? `Prodotto congelato`
+          : `Prodotto artigianale`;
+    } else {
+      isFrozen.textContent = '';
+    }
     price.textContent = whichMenu[y].price;
     tabContent.appendChild(createdDiv);
     createdDiv.append(header, allergens, isFrozen, price);
-    // createdDiv.appendChild(allergens);
-    // createdDiv.appendChild(isFrozen);
-    // createdDiv.appendChild(price);
   }
 };
 
