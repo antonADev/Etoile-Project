@@ -27,28 +27,87 @@
     <script src="main.js" defer></script>
   </head>
   <body>
+    <div class="modal hidden menuModal">
+      <button class="close-modal">&times;</button>
+      <div class="textDiv">
+        <h3 class="modalText menuHeader">Scopri il nostro menu completo</h3>
+      </div>
+      <div class="imageDiv">
+        <a
+          href="https://drive.google.com/file/d/1p-ckFzCmVGpspUV_CJNYBXFLh7yW6QD4/view?usp=sharing"
+          ><img class="menuImage" src="/images/menu.png" alt="menu-thumbnail"
+        /></a>
+      </div>
+    </div>
+    <div class="overlay hidden"></div>
+    <div class="modal hidden contactsModal">
+      <button class="close-modal">&times;</button>
+      <div class="textDiv contactsTextDiv">
+        <h3 class="modalText menuHeader">Contattaci</h3>
+        <div class="contactsTextContainer">
+          <p class="contactText">
+            <i class="fas fa-phone-alt"></i> 0984 95 14 96
+          </p>
+          <p class="contactText">
+            <i class="far fa-envelope"></i>
+            <a href="mailto: etoilebisignano@gmail.com"
+              >etoilebisignano@gmail.com</a
+            >
+          </p>
+          <p class="contactText">
+            <i class="fas fa-map-marker-alt"></i>Vieni a trovarci:
+          </p>
+          <iframe
+            class="maps"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3078.529028135818!2d16.266345351845946!3d39.502548179381165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f766c9cb32e97%3A0x2d98d0c9464a97c3!2sEtoile%20Di%20Stella%20Francesco!5e0!3m2!1sit!2sit!4v1642599646459!5m2!1sit!2sit"
+            width="300"
+            height="225"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="modalIcons icon-container footer-containers">
+          <div class="facebook">
+            <a
+              href="https://www.facebook.com/ETOILEBISIGNANO"
+              alt="Facebook page link"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+          </div>
+          <div class="instagram">
+            <a
+              href="https://www.instagram.com/etoile_bisignano/?hl=it"
+              alt="Instagram page link"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay hidden"></div>
     <nav data-nav>
       <div class="navbar-center">
         <div class="nav-header">
           <a class="navbar-brand" href="#">ETOILE</a>
-          <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+          <button class="nav-toggle">
+            <i class="fas fa-bars" alt="NavBar toggle"></i>
+          </button>
         </div>
         <ul class="navbar-links">
           <li class="nav-item">
-            <a class="nav-link" href="#">HOME</a>
+            <a class="nav-link homeButton" href="">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">MENU</a>
+            <a class="navtablink nav-link">MENU</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">ABOUT</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">CONTACTS</a>
+            <a class="navtablink nav-link">CONTACTS</a>
           </li>
         </ul>
       </div>
     </nav>
+
     <section id="welcome-section">
       <div class="main-container welcome-container positioning">
         <div class="border-container welcome-border-container">
@@ -59,7 +118,7 @@
               <h1 class="main-header text-margin">
                 Etoile Food Bar & Cocktail
               </h1>
-              <p class="phone-number-para text-margin">123-456789</p>
+              <p class="phone-number-para text-margin">0984-951496</p>
               <div class="menu-button">
                 <button
                   type="button"
@@ -72,6 +131,12 @@
             <img
               class="cocktail-img"
               src="images/cocktail-bg.jpg"
+              srcset="
+                images/cocktail-bg4x.jpg 4x,
+                images/cocktail-bg3x.jpg 3x,
+                images/cocktail-bg2x.jpg 2x,
+                images/cocktail-bg1x.jpg 1x
+              "
               alt="cocktail-image"
             />
           </div>
@@ -112,8 +177,13 @@
         <div class="image-container">
           <img
             class="middle-img border"
-            src="images/middle-cocktail.png"
-            alt=""
+            srcset="
+              images/middle-cocktail-4x.webp 4x,
+              images/middle-cocktail-3x.webp 3x,
+              images/middle-cocktail-2x.webp 2x,
+              images/middle-cocktail-1x.webp 1x
+            "
+            alt="Cocktail Image"
           />
         </div>
         <div class="middle-text-container">
@@ -127,12 +197,12 @@
             accogliente, allegro e gioviale, con personale gentile e sempre
             disponibile ad esaudire ogni vostra richiesta. Tutti i giorni offre
             colazioni indimenticabili dove potrai accompagnare al tuo caffè o al
-            tuo cappuccino cornetti caldi di produzione artigianale. È inoltre
-            un luogo di ritrovo ideale pronto ad accogliervi durante le pause
-            della vostra giornata. La passione per il proprio lavoro fa sì che
-            l’Etoile abbia affinato la sua produzione di tantissime varietà di
-            dolci al cucchiaio e torte artigianali, compresi i buonissimi gelati
-            dai gusti che sapranno deliziarvi e sorprendervi.
+            tuo cappuccino dei cornetti caldi e brioches per tutti i gusti. È
+            inoltre un luogo di ritrovo ideale pronto ad accogliervi durante le
+            pause della vostra giornata. La passione per il proprio lavoro fa sì
+            che l’Etoile abbia affinato la sua produzione di tantissime varietà
+            di dolci al cucchiaio e torte artigianali, compresi i buonissimi
+            gelati dai gusti che sapranno deliziarvi e sorprendervi.
           </p>
           <p class="activity-para">
             Molto interessante è la proposta degli aperitivi e degli apericena,
@@ -147,79 +217,21 @@
         </div>
       </div>
     </section>
-    <!-- <section id="form-section">
-      <div class="main-container form-container positioning">
-        <div class="border-container form-border-container">
-          <div class="yellow-container">
-            <div class="form">
-              <div class="form-space">
-                <label for="inputName" class="name-input form-label"
-                  >Nome:</label
-                >
-                <input
-                  type="name"
-                  id="inputName"
-                  class="name-control form-control"
-                  aria-describedby="NamehelpBlock"
-                  placeholder="Nome"
-                />
-              </div>
-              <div class="form-space">
-                <label for="inputSurname" class="surname-input form-label"
-                  >Cognome:</label
-                >
-                <input
-                  type="surname"
-                  id="inputSurname"
-                  class="surname-control form-control"
-                  aria-describedby="surnameBlock"
-                  placeholder="Cognome"
-                />
-              </div>
-              <div class="form-space">
-                <label for="validationCustom04" class="form-label"
-                  >Per cosa ci contatti?</label
-                >
-                <select class="form-select" id="validationCustom04" required>
-                  <option selected disabled value="">Seleziona...</option>
-                  <option>Preventivo</option>
-                  <option>Organizzazione evento</option>
-                  <option>Richieste speciali</option>
-                  <option>Informazioni generali</option>
-                </select>
-                <div class="invalid-feedback">Indica una motivazione.</div>
-              </div>
-              <div class="form-space">
-                <label for="exampleFormControlTextarea1" class="form-label"
-                  >Messaggio:</label
-                >
-                <textarea
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  placeholder="Scrivi qui il tuo messaggio"
-                ></textarea>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  class="menu-btn submit-button btn btn-primary button-wrapper"
-                >
-                  Invia
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
     <section id="menu">
       <div class="tab-div reveal">
         <div class="tab-container">
           <div class="tab-button-container">
-            <button class="tablinks">Colazione</button>
-            <button class="tablinks">Aperitivo</button>
-            <button class="tablinks">Gelateria</button>
+            <button class="tablinks colazione">Colazione</button>
+            <button class="tablinks aperitivo">Aperitivo</button>
+            <button class="tablinks dolcialcucchiaio">
+              Dolci al Cucchiaio
+            </button>
+            <button class="tablinks menucompleto">
+              <a
+                href="https://drive.google.com/file/d/1p-ckFzCmVGpspUV_CJNYBXFLh7yW6QD4/view?usp=sharing"
+                >Scopri il menu completo</a
+              >
+            </button>
           </div>
           <div class="tab-content-container"></div>
         </div>
@@ -230,18 +242,31 @@
         <footer class="footer-class positioning">
           <div class="footer-container">
             <div class="footer-text-container footer-containers">
-              <p class="footer-number">123 45 67 890</p>
-              <p class="footer-mail">mail@loremipsum.com</p>
-              <p class="footer-download">Download MENU</p>
+              <p class="footer-number">0984 95 14 96</p>
+              <p class="footer-mail">
+                <a href="mailto: etoilebisignano@gmail.com"
+                  >etoilebisignano@gmail.com</a
+                >
+              </p>
+              <p class="footer-download">
+                <a
+                  href="https://drive.google.com/file/d/1p-ckFzCmVGpspUV_CJNYBXFLh7yW6QD4/view?usp=sharing"
+                  >Download MENU</a
+                >
+              </p>
             </div>
-            <div class="footer-icon-container footer-containers">
+            <div class="icon-container footer-containers">
               <div class="facebook">
-                <a href="https://www.facebook.com/ETOILEBISIGNANO"
+                <a
+                  href="https://www.facebook.com/ETOILEBISIGNANO"
+                  alt="Facebook page link"
                   ><i class="fab fa-facebook-f"></i
                 ></a>
               </div>
               <div class="instagram">
-                <a href="https://www.instagram.com/etoile_bisignano/?hl=it"
+                <a
+                  href="https://www.instagram.com/etoile_bisignano/?hl=it"
+                  alt="Instagram page link"
                   ><i class="fab fa-instagram"></i
                 ></a>
               </div>

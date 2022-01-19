@@ -1,16 +1,49 @@
+// VARIABLES
+
 const toggleButton = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.navbar-links');
 const navBar = document.querySelector('[data-nav]');
 const tabLinks = document.querySelectorAll('.tablinks');
 const menuItemDivs = document.querySelectorAll('.style');
 const tabContent = document.querySelector('.tab-content-container');
+const menuBtn = document.querySelector('.menu-btn');
+const homeBtn = document.querySelector('.homeButton');
+const modal = document.querySelectorAll('.modal');
+const overlay = document.querySelectorAll('.overlay');
+const btnCloseModal = document.querySelectorAll('.close-modal');
+const navTabLinks = document.querySelectorAll('.navtablink');
 
-let currentWidth;
+let menuMo = false;
+let contactsMo = false;
+
+const eatingsBig = [
+  'one',
+  'two',
+  'three',
+  'four',
+  'five',
+  'six',
+  'seven',
+  'eight',
+  'nine',
+  'ten',
+  'eleven',
+  'twelve',
+];
+const eatingsSmall = ['one', 'two', 'three'];
+
+//MENU OBJECT
 
 const menu = {
   breakfastMenu: [
     {
       name: 'Cornetto Integrale Vuoto',
+      prodAllergens: [2, 5, 13],
+      frozen: true,
+      price: '1,20€',
+    },
+    {
+      name: 'Cornetto Farcito',
       prodAllergens: [2, 5, 13],
       frozen: true,
       price: '1,20€',
@@ -28,7 +61,13 @@ const menu = {
       price: '1,20€',
     },
     {
-      name: 'Conchiglia cioccolato o crema',
+      name: 'Conchiglia al Cioccolato',
+      prodAllergens: [2, 5, 13],
+      frozen: true,
+      price: '1,20€',
+    },
+    {
+      name: 'Conchiglia alla Crema',
       prodAllergens: [2, 5, 13],
       frozen: true,
       price: '1,20€',
@@ -43,7 +82,7 @@ const menu = {
       name: 'Crostata',
       prodAllergens: [2, 5, 13],
       frozen: false,
-      price: '1,50€',
+      price: '1,20€',
     },
     {
       name: 'Saccottino al Cioccolato',
@@ -73,18 +112,18 @@ const menu = {
   aperitifMenu: [
     {
       name: 'Tagliere Salumi & Formaggi',
-      prodAllergens: [5],
+      prodAllergens: [2, 5],
       price: '5,00€',
     },
     {
       name: 'Aperitivo Completo',
-      prodAllergens: [1, 2, 4, 5],
+      prodAllergens: [1, 2, 4, 5, 14],
       price: '7.50€',
     },
     {
-      name: 'Aperitivo Base',
-      prodAllergens: [13],
-      price: '2.50€',
+      name: 'Aperitivo Semplice',
+      prodAllergens: [13, 14],
+      price: '3,00€',
     },
     {
       name: 'Nachos con salsa BBQ e Olive',
@@ -92,41 +131,105 @@ const menu = {
       price: '1,00€',
     },
     {
+      name: 'Olive',
+      price: '1,00€',
+    },
+    {
       name: 'Patatine & Arachidi',
-      prodAllergens: [4],
-      price: '0,50€',
+      prodAllergens: [1],
+      price: '1,50€',
+    },
+    {
+      name: 'Pizza Trancio Margherita',
+      prodAllergens: [2, 5],
+      price: '1,00€',
+    },
+    {
+      name: 'Pizza Trancio Farcita',
+      prodAllergens: [2, 5, 14],
+      price: '1,50€',
+    },
+    {
+      name: 'Pizza Rustica Farcita',
+      prodAllergens: [2, 5, 14],
+      price: '1,50€',
+    },
+    {
+      name: 'Piadina Farcita',
+      prodAllergens: [2, 14],
+      price: '3,50€',
+    },
+    {
+      name: 'Panzerotto',
+      prodAllergens: [2, 5],
+      price: '2,00€',
+    },
+    {
+      name: 'Patatine Fritte',
+      frozen: true,
+      price: '2,50€',
     },
   ],
-  iceCreamMenu: [
+  cakeMenu: [
     {
-      name: 'Tagliere Salumi & Formaggi',
-      prodAllergens: [5],
-      frozen: false,
-      price: '5,00€',
-    },
-    {
-      name: 'Aperitivo Completo',
-      prodAllergens: [1, 2, 4, 5],
-      frozen: false,
-      price: '7.50€',
-    },
-    {
-      name: 'Aperitivo Base',
-      prodAllergens: [13],
-      frozen: false,
-      price: '2.50€',
-    },
-    {
-      name: 'Nachos con salsa BBQ e Olive',
+      name: 'Cannolo Siciliano Scomposto',
       prodAllergens: [2, 5, 13],
-      frozen: false,
-      price: '1,00€',
+      price: '3,00€',
     },
     {
-      name: 'Patatine & Arachidi',
-      prodAllergens: [4],
-      frozen: false,
-      price: '0,50€',
+      name: 'Cestino Frutta',
+      prodAllergens: [2, 5, 13],
+      price: '3.00€',
+    },
+    {
+      name: 'Cheesecake',
+      prodAllergens: [2, 5, 13],
+      price: '3,00€',
+    },
+    {
+      name: 'Kinder Bueno',
+      prodAllergens: [2, 4, 5, 13],
+      price: '3.00€',
+    },
+    {
+      name: 'Kinder Cereali',
+      prodAllergens: [2, 4, 5, 13],
+      price: '3.00€',
+    },
+    {
+      name: 'Kinder Delice',
+      prodAllergens: [2, 4, 5, 13],
+      price: '3.00€',
+    },
+    {
+      name: 'Rocher',
+      prodAllergens: [2, 4, 5, 13],
+      price: '3.00€',
+    },
+    {
+      name: 'Millefoglie Frutti di Bosco',
+      prodAllergens: [2, 5, 13],
+      price: '3.00€',
+    },
+    {
+      name: 'Mousse al Pistacchio',
+      prodAllergens: [2, 5, 13],
+      price: '3.00€',
+    },
+    {
+      name: 'Mousee Black & White',
+      prodAllergens: [2, 5, 13],
+      price: '3.00€',
+    },
+    {
+      name: 'Nutella Biscuit',
+      prodAllergens: [2, 5, 13],
+      price: '3.00€',
+    },
+    {
+      name: 'Oreo',
+      prodAllergens: [2, 5, 13],
+      price: '3.00€',
     },
   ],
   allergens: [
@@ -144,6 +247,7 @@ const menu = {
     'Senape',
     'Soia',
     'Uova',
+    'Variabili',
   ],
   displayAllergens(arr) {
     let string = [];
@@ -154,23 +258,9 @@ const menu = {
   },
 };
 
-const eatingsBig = [
-  'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'six',
-  'seven',
-  'eight',
-];
-const eatingsSmall = ['one', 'two', 'three'];
+let currentMenu = menu.breakfastMenu;
 
-// const removeMenuItems = function () {
-//   menuItemDivs.forEach(element => {
-//     element.innerText = '';
-//   });
-// };
+// FUNCTIONS
 
 const removeMenuItems = function () {
   tabContent.innerHTML = '';
@@ -178,55 +268,122 @@ const removeMenuItems = function () {
 
 const displayFood = function (whichMenu) {
   removeMenuItems();
-  for (let y = 0; y < screenSize().length; y++) {
-    // let createdDiv = document.querySelector(`.${eatings[y]}`);
-    let createdDiv = document.createElement('DIV');
-    createdDiv.classList.add(`${screenSize()[y]}`, 'style');
-    let header = document.createElement('H5');
-    header.classList.add('product');
-    let allergens = document.createElement('P');
-    allergens.classList.add('allergens');
-    let isFrozen = document.createElement('P');
-    isFrozen.classList.add('isFrozen');
-    let price = document.createElement('P');
-    price.classList.add('price');
-    header.textContent = whichMenu[y].name;
-    allergens.textContent = menu.displayAllergens(whichMenu[y].prodAllergens);
-    if (whichMenu[y].hasOwnProperty('frozen')) {
-      isFrozen.textContent =
-        whichMenu[y].frozen === true
-          ? `Prodotto congelato`
-          : `Prodotto artigianale`;
+  for (let y = 0; y < resizeMenu(screenSize()).length; y++) {
+    let html;
+    if (whichMenu[y]) {
+      html = `<div class="${resizeMenu(screenSize())[y]} style">
+  <h5 class="product">${whichMenu[y].name}</h5>
+  <p class="allergens">${
+    whichMenu[y].hasOwnProperty('prodAllergens')
+      ? menu.displayAllergens(whichMenu[y].prodAllergens)
+      : ''
+  }</p>
+  <p class="isFrozen">${
+    whichMenu[y].hasOwnProperty('frozen')
+      ? 'Prodotto congelato'
+      : 'Prodotto Artigianale'
+  }</p>
+  <p class="price">${whichMenu[y].price}</p>
+</div>`;
     } else {
-      isFrozen.textContent = '';
+      return;
     }
-    price.textContent = whichMenu[y].price;
-    tabContent.appendChild(createdDiv);
-    createdDiv.append(header, allergens, isFrozen, price);
+    tabContent.insertAdjacentHTML('beforeend', html);
   }
 };
 
-tabLinks.forEach((button, index) => {
-  button.addEventListener('click', () => {
-    tabLinks.forEach(a => {
-      a.classList.remove('activeTab');
+const menuTrigger = function () {
+  tabLinks.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      tabLinks.forEach(a => {
+        a.classList.remove('activeTab');
+      });
+      button.classList.add('activeTab');
+      switch (button.textContent) {
+        case 'Colazione':
+          displayFood(menu.breakfastMenu);
+
+          currentMenu = menu.breakfastMenu;
+
+          break;
+        case 'Aperitivo':
+          displayFood(menu.aperitifMenu);
+
+          currentMenu = menu.aperitifMenu;
+
+          break;
+        case 'Dolci al Cucchiaio':
+          displayFood(menu.cakeMenu);
+
+          currentMenu = menu.cakeMenu;
+
+          break;
+        default:
+          break;
+      }
     });
-    button.classList.add('activeTab');
-    switch (button.textContent) {
-      case 'Colazione':
-        displayFood(menu.breakfastMenu);
-        break;
-      case 'Aperitivo':
-        displayFood(menu.aperitifMenu);
-        break;
-      case 'Gelateria':
-        displayFood(menu.iceCreamMenu);
-        break;
-      default:
-        break;
-    }
   });
-});
+};
+menuTrigger();
+
+const reveal = function () {
+  let reveals = document.querySelectorAll('.reveal');
+
+  for (var i = 0; i < reveals.length; i++) {
+    let windowheight = window.innerHeight;
+    let revealtop = reveals[i].getBoundingClientRect().top;
+    let revealpoint = 150;
+
+    if (revealtop < windowheight - revealpoint) {
+      reveals[i].classList.add('active');
+    } else {
+      reveals[i].classList.remove('active');
+    }
+  }
+};
+
+const screenSize = function () {
+  // Get the dimensions of the viewport
+  let width =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+
+  return width;
+};
+
+const resizeMenu = function (width) {
+  if (width >= 963) {
+    tabContent.classList.remove('parentSmall');
+    tabContent.classList.add('parentBig');
+    return eatingsBig;
+  } else {
+    tabContent.classList.add('parentSmall');
+    tabContent.classList.remove('parentBig');
+    return eatingsSmall;
+  }
+};
+
+const scrollToMenu = function (screenPortion) {
+  document.querySelector(`${screenPortion}`).scrollIntoView({
+    behavior: 'smooth',
+    block: 'center',
+  });
+};
+
+const openModal = function (index) {
+  modal[index].classList.remove('hidden');
+  modal[index].classList.add('modalActive');
+  overlay[index].classList.remove('hidden');
+};
+
+const closeModal = function (index) {
+  modal[index].classList.add('hidden');
+  modal[index].classList.remove('modalActive');
+  overlay[index].classList.add('hidden');
+};
+
+// EVENT HANDLERS
 
 toggleButton.addEventListener('click', () => {
   if (navLinks.classList.contains('show-links')) {
@@ -248,60 +405,82 @@ window.addEventListener('resize', () => {
   }
 });
 
-// window.addEventListener('scroll', (event) => {
+window.addEventListener('scroll', function () {
+  reveal();
+});
 
-//     const scrollTop = window.scrollY;
-//     var navResizeFunc = function () {
-//         let height;
-
-//         if (scrollTop <= 50) {
-//           height = 100 - scrollTop;
-//         } else {
-//           height = 50;
-//         }
-//         navBar.style.height = `${height}px`;
-//       };
-
-//       navResizeFunc(true);
-//       window.addEventListener("scroll", navResizeFunc());
-// })
-
-window.addEventListener('scroll', reveal);
-
-function reveal() {
-  let reveals = document.querySelectorAll('.reveal');
-
-  for (var i = 0; i < reveals.length; i++) {
-    let windowheight = window.innerHeight;
-    let revealtop = reveals[i].getBoundingClientRect().top;
-    let revealpoint = 150;
-
-    if (revealtop < windowheight - revealpoint) {
-      reveals[i].classList.add('active');
-    } else {
-      reveals[i].classList.remove('active');
-    }
-  }
-}
-function screenSize() {
-  // Get the dimensions of the viewport
-  let width =
-    window.innerWidth ||
-    document.documentElement.clientWidth ||
-    document.body.clientWidth;
-  if (width >= 963) {
-    tabContent.classList.remove('parentSmall');
-    tabContent.classList.add('parentBig');
-    return eatingsBig;
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= '963') {
+    displayFood(currentMenu);
   } else {
-    tabContent.classList.add('parentSmall');
-    tabContent.classList.remove('parentBig');
-    return eatingsSmall;
+    displayFood(currentMenu);
   }
-}
-window.addEventListener('load', screenSize);
+});
 window.addEventListener('load', function () {
-  displayFood(menu.breakfastMenu);
+  resizeMenu(screenSize());
+});
+window.addEventListener('load', function () {
+  displayFood(currentMenu);
   tabLinks[0].classList.add('activeTab');
 });
-window.addEventListener('resize', screenSize);
+window.addEventListener('resize', function () {
+  resizeMenu(screenSize());
+});
+
+menuBtn.addEventListener('click', function () {
+  scrollToMenu('#menu');
+});
+
+for (let i = 0; i < navTabLinks.length; i++) {
+  navTabLinks[i].addEventListener('click', function () {
+    scrollToMenu('#welcome-section');
+
+    if (screenSize() <= 800) navLinks.classList.remove('show-links');
+    if (i === 0) {
+      if ((menuMo = !menuMo)) {
+        openModal(0);
+        contactsMo = false;
+        closeModal(1);
+      } else {
+        closeModal(0);
+      }
+    } else if (i === 1) {
+      if ((contactsMo = !contactsMo)) {
+        openModal(1);
+        menuMo = false;
+        closeModal(0);
+      } else {
+        closeModal(1);
+      }
+    }
+  });
+}
+btnCloseModal.forEach(button => {
+  button.addEventListener('click', function () {
+    closeModal(0);
+    closeModal(1);
+  });
+});
+
+overlay.forEach(button => {
+  button.addEventListener('click', function () {
+    closeModal(0);
+    closeModal(1);
+  });
+});
+
+document.addEventListener('keydown', function (e) {
+  if (
+    (e.key === 'Escape' && !modal[0].classList.contains('hidden')) ||
+    (e.key === 'Escape' && !modal[1].classList.contains('hidden'))
+  ) {
+    closeModal(0);
+    closeModal(1);
+  }
+});
+
+homeBtn.addEventListener('click', function () {
+  closeModal(0);
+  closeModal(1);
+  homeBtn.href = '#';
+});
