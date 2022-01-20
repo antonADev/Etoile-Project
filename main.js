@@ -364,7 +364,7 @@ const resizeMenu = function (width) {
   }
 };
 
-const scrollToMenu = function (screenPortion) {
+const scrollToScreen = function (screenPortion) {
   document.querySelector(`${screenPortion}`).scrollIntoView({
     behavior: 'smooth',
     block: 'center',
@@ -428,13 +428,11 @@ window.addEventListener('resize', function () {
 });
 
 menuBtn.addEventListener('click', function () {
-  scrollToMenu('#menu');
+  scrollToScreen('#menu');
 });
 
 for (let i = 0; i < navTabLinks.length; i++) {
   navTabLinks[i].addEventListener('click', function () {
-    scrollToMenu('#welcome-section');
-
     if (screenSize() <= 800) navLinks.classList.remove('show-links');
     if (i === 0) {
       if ((menuMo = !menuMo)) {
