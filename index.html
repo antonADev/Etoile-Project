@@ -40,21 +40,28 @@
       <div class="navbar-center">
         <div class="nav-header">
           <a class="navbar-brand" href="https://etoilebar.com/">ETOILE</a>
-          <button class="nav-toggle">
-            <i class="fas fa-bars" alt="NavBar toggle"></i>
+          <button class="nav-toggle" aria-label="Open the menu">
+            <i class="fas fa-bars" aria-hidden="true"></i>
           </button>
         </div>
         <ul class="navbar-links">
           <li class="nav-item">
-            <a class="nav-link homeButton" href="https://etoilebar.com/"
+            <a
+              class="nav-link homeButton"
+              href="https://etoilebar.com/"
+              aria-label="Go back to the home"
               >HOME</a
             >
           </li>
           <li class="nav-item">
-            <a class="navtablink nav-link">MENU</a>
+            <a class="navtablink nav-link" aria-label="Open the menu modal"
+              >MENU</a
+            >
           </li>
           <li class="nav-item">
-            <a class="navtablink nav-link">CONTACTS</a>
+            <a class="navtablink nav-link" aria-label="Open the contacts modal"
+              >CONTACTS</a
+            >
           </li>
         </ul>
       </div>
@@ -75,6 +82,7 @@
                 <button
                   type="button"
                   class="menu-btn btn button-wrapper text-margin"
+                  aria-label="Goes to menu section"
                 >
                   Scopri il nostro menu
                 </button>
@@ -173,14 +181,28 @@
       <div class="tab-div reveal">
         <div class="tab-container">
           <div class="tab-button-container">
-            <button class="tablinks colazione">Colazione</button>
-            <button class="tablinks aperitivo">Aperitivo</button>
-            <button class="tablinks dolcialcucchiaio">
+            <button
+              class="tablinks colazione"
+              aria-label="Displays the menu breakfast section"
+            >
+              Colazione
+            </button>
+            <button
+              class="tablinks aperitivo"
+              aria-label="Displays the menu aperitif section"
+            >
+              Aperitivo
+            </button>
+            <button
+              class="tablinks dolcialcucchiaio"
+              aria-label="Displays the menu cakes section"
+            >
               Dolci al Cucchiaio
             </button>
             <button class="tablinks menucompleto">
               <a
                 href="https://drive.google.com/file/d/1p-ckFzCmVGpspUV_CJNYBXFLh7yW6QD4/view?usp=sharing"
+                aria-label="Links to the full menu"
                 >Scopri il menu completo</a
               >
             </button>
@@ -207,19 +229,20 @@
                 >
               </p>
             </div>
-            <div class="icon-container footer-containers">
+            <div class="icon-container iconButtonSize footer-containers">
               <div class="facebook">
                 <a
                   href="https://www.facebook.com/ETOILEBISIGNANO"
-                  alt="Facebook page link"
-                  ><i class="fab fa-facebook-f"></i
+                  aria-label="Links to the facebook page"
+                  ><i class="fab fa-facebook-f" aria-hidden="true"></i
                 ></a>
               </div>
               <div class="instagram">
                 <a
                   href="https://www.instagram.com/etoile_bisignano/?hl=it"
                   alt="Instagram page link"
-                  ><i class="fab fa-instagram"></i
+                  aria-label="Links to the instagram page"
+                  ><i class="fab fa-instagram" aria-hidden="true"></i
                 ></a>
               </div>
             </div>
@@ -235,6 +258,7 @@
       <div class="imageDiv">
         <a
           href="https://drive.google.com/file/d/1p-ckFzCmVGpspUV_CJNYBXFLh7yW6QD4/view?usp=sharing"
+          aria-label="Links to the full menu"
           ><img class="menuImage" src="/images/menu.png" alt="menu-thumbnail"
         /></a>
       </div>
@@ -265,21 +289,23 @@
             style="border: 0"
             allowfullscreen=""
             loading="lazy"
+            aria-label="Links to the google maps position"
           ></iframe>
         </div>
-        <div class="modalIcons icon-container footer-containers">
+        <div class="modalIcons icon-container iconButtonSize footer-containers">
           <div class="facebook">
             <a
               href="https://www.facebook.com/ETOILEBISIGNANO"
-              alt="Facebook page link"
-              ><i class="fab fa-facebook-f"></i
+              aria-label="Links to the facebook page"
+              ><i class="fab fa-facebook-f" aria-hidden="true"></i
             ></a>
           </div>
           <div class="instagram">
             <a
               href="https://www.instagram.com/etoile_bisignano/?hl=it"
               alt="Instagram page link"
-              ><i class="fab fa-instagram"></i
+              aria-label="Links to the instagram page"
+              ><i class="fab fa-instagram" aria-hidden="true"></i
             ></a>
           </div>
         </div>

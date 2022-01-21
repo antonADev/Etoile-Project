@@ -674,7 +674,7 @@ h5 {
 }
 
 .fab {
-  padding: 0 10px;
+  padding: 30px 35px;
   color: #160b00;
 }
 
@@ -912,5 +912,12 @@ h5 {
   }
   .footer-container p {
     margin: 10px 0;
+  }
+
+  .iconButtonSize {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }
