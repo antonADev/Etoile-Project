@@ -416,13 +416,16 @@ window.addEventListener('resize', () => {
     displayFood(currentMenu);
   }
 });
+
 window.addEventListener('load', function () {
   resizeMenu(screenSize());
 });
+
 window.addEventListener('load', function () {
   displayFood(currentMenu);
   tabLinks[0].classList.add('activeTab');
 });
+
 window.addEventListener('resize', function () {
   resizeMenu(screenSize());
 });
@@ -431,28 +434,22 @@ menuBtn.addEventListener('click', function () {
   scrollToScreen('#menu');
 });
 
-for (let i = 0; i < navTabLinks.length; i++) {
-  navTabLinks[i].addEventListener('click', function () {
+navTabLinks.forEach(btn =>
+  btn.addEventListener('click', function () {
     if (screenSize() <= 800) navLinks.classList.remove('show-links');
-    if (i === 0) {
-      if ((menuMo = !menuMo)) {
+    switch (btn.textContent) {
+      case 'MENU':
         openModal(0);
-        contactsMo = false;
-        closeModal(1);
-      } else {
-        closeModal(0);
-      }
-    } else if (i === 1) {
-      if ((contactsMo = !contactsMo)) {
+        break;
+      case 'CONTACTS':
         openModal(1);
-        menuMo = false;
-        closeModal(0);
-      } else {
-        closeModal(1);
-      }
+        break;
+      default:
+        break;
     }
-  });
-}
+  })
+);
+
 btnCloseModal.forEach(button => {
   button.addEventListener('click', function () {
     closeModal(0);
@@ -475,10 +472,4 @@ document.addEventListener('keydown', function (e) {
     closeModal(0);
     closeModal(1);
   }
-});
-
-homeBtn.addEventListener('click', function () {
-  closeModal(0);
-  closeModal(1);
-  homeBtn.href = '#';
 });

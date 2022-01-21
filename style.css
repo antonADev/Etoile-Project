@@ -65,6 +65,7 @@ nav {
   width: 100%;
   z-index: 99;
 }
+
 /* MODAL */
 .show-modal {
   font-size: 2rem;
@@ -92,12 +93,14 @@ nav {
 .hidden {
   display: none;
 }
+
 .modalActive {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .modal {
   position: fixed;
   top: 50%;
@@ -107,13 +110,12 @@ nav {
   text-align: center;
   width: 70%;
   max-height: 600px;
-
   padding: 6rem;
   border-radius: 5px;
-
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 100;
 }
+
 .contactsModal {
   background-color: #ffcf9a;
   color: #160b00;
@@ -153,7 +155,6 @@ p {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   z-index: 99;
-  transition: all 0.5s;
 }
 
 .menuImage {
@@ -213,6 +214,7 @@ p {
 .nav-toggle:hover {
   transform: rotate(90deg);
 }
+
 .nav-toggle .fas {
   color: #000000;
 }
@@ -251,6 +253,10 @@ p {
 
 .main-header {
   font-size: 5rem;
+}
+
+.visit-us-para {
+  color: #ffcf9a;
 }
 
 .phone-number-para {
