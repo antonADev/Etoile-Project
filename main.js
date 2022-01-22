@@ -473,3 +473,33 @@ document.addEventListener('keydown', function (e) {
     closeModal(1);
   }
 });
+
+// Event Delegation
+document
+  .querySelector('.tab-button-container')
+  .addEventListener('click', function (e) {
+    if (e.target.classList.contains('tablinks')) {
+      tabLinks.forEach(a => {
+        a.classList.remove('activeTab');
+      });
+      switch (e.target.classList[1]) {
+        case 'colazione':
+          displayFood(menu.breakfastMenu);
+          currentMenu = menu.breakfastMenu;
+          e.target.classList.add('activeTab');
+          break;
+        case 'aperitivo':
+          displayFood(menu.aperitifMenu);
+          currentMenu = menu.aperitifMenu;
+          e.target.classList.add('activeTab');
+          break;
+        case 'dolcialcucchiaio':
+          displayFood(menu.cakeMenu);
+          currentMenu = menu.cakeMenu;
+          e.target.classList.add('activeTab');
+          break;
+        default:
+          break;
+      }
+    }
+  });
